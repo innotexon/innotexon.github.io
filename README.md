@@ -57,7 +57,7 @@ If you wish to inquire about collaborations, research, or licensing, please cont
 
 For any inquiries, please reach out to us at:
 
-- **Email**: info.innotexon@gmail.com
+- **Email**: contact@innotexon.com
 - **Website**: [https://innotexon.com](https://innotexon.com)
 
 

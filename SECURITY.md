@@ -12,7 +12,7 @@ As such, we actively encourage responsible disclosure of potential vulnerabiliti
 
 If you believe you have discovered a vulnerability or security issue in any INNOTEXON product, website, or repository, please follow the guidelines below:
 
-- **Contact Email:** info.innotexon@gmail.com *
+- **Contact Email:** legal@innotexon.com *
 - **Subject Line:** `INNOTEXON Vulnerability Disclosure`
 - **Do Not** open public issues on GitHub or any forum to report vulnerabilities.
 

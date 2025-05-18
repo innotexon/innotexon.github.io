@@ -1,3 +1,8 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for https://www.innotexon.com
+# Learn more: https://www.robotstxt.org/
+
 User-agent: *
 Disallow:
+
+Sitemap: https://www.innotexon.com/sitemap.xml
+Host: https://www.innotexon.com

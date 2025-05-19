@@ -1,0 +1,17 @@
+Copyright © 2025 Innotexon Inc. All Rights Reserved.
+
+This software, source code, design, documentation, and all related intellectual property (collectively, the “Materials”) are the exclusive property of Innotexon Inc.
+
+No part of the Materials may be copied, reproduced, modified, distributed, displayed, or otherwise used, in whole or in part, without the prior express written consent of Innotexon Inc.
+
+Unauthorized use, reproduction, or distribution of the Materials is strictly prohibited and may result in civil and criminal penalties.
+
+Innotexon Inc. reserves all rights not expressly granted herein.
+
+For permissions or inquiries, contact legal@innotexon.com.
+
+THIS LICENSE DOES NOT GRANT ANY RIGHTS TO USE INNOTEXON INC.’S TRADEMARKS, SERVICE MARKS, OR LOGOS.
+
+THE MATERIALS ARE PROVIDED “AS IS,” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+
+IN NO EVENT SHALL INNOTEXON INC. BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE MATERIALS.

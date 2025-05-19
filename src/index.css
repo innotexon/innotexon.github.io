@@ -1,13 +1,72 @@
-body {
+/* Global Reset and Base Structure */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Clean Slates */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Base Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #222;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Anchor Styling */
+a {
+  color: #1e90ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: #007acc;
+  outline: none;
+}
+
+/* List Reset */
+ul, ol {
+  list-style: none;
+}
+
+/* Image Resets */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Inputs and Forms */
+button, input, textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Universal Container Utility */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* AOS Animations Tuning */
+[data-aos] {
+  transition-property: transform, opacity;
+  transition-duration: 800ms;
+  transition-timing-function: ease-in-out;
 }

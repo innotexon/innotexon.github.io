@@ -1,41 +1,31 @@
+// src/pages/apex.js
+
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./apex.css"; // Optional: import if you add custom styles
+import "./apex.css";
 
-const apex = () => {
+function Apex() {
   useEffect(() => {
-    AOS.init({ once: true });
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
-    <>
+    <div className="apex-container">
       <Helmet>
         <title>Ape-X | Innotexon</title>
-        <meta
-          name="description"
-          content="Ape-X: Guardian Intellect AI is coming soon on Innotexon."
-        />
-        <meta name="robots" content="noindex,nofollow" />
+        <meta name="description" content="Ape-X is an evolving mystery beyond the stars, crafted by Innotexon." />
       </Helmet>
-
-      <div
-        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white text-center p-6"
-        data-aos="fade-up"
-      >
-        <div>
-          <h1 className="text-5xl font-bold mb-4">Ape-X is Awakening...</h1>
-          <p className="text-lg opacity-80 mb-6">
-            Guardian Intellect AI for truth, safety, reason, and evolution.
-          </p>
-          <p className="text-sm text-gray-400">
-            Page under development – stay tuned.
-          </p>
-        </div>
+      <h1 className="apex-title" data-aos="zoom-in">Ape-X</h1>
+      <p className="apex-description" data-aos="fade-up">
+        A guardian-intellect forged for truth, reason, and evolution. Ape-X is coming soon to guide, uplift, and protect humanity in the digital age.
+      </p>
+      <div className="apex-comingsoon" data-aos="fade-up">
+        Coming Soon
       </div>
-    </>
+    </div>
   );
-};
+}
 
-export default apex;
+export default Apex;

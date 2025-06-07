@@ -16,6 +16,9 @@ import Contact from "./components/Contact";
 import Buttonapex from "./components/Buttonapex";
 import { useNavigate } from "react-router-dom";
 
+// ✅ NEW IMPORT
+import TermsConsentModal from "./components/TermsConsentModal";
+
 function App() {
   const navigate = useNavigate();
 
@@ -28,7 +31,10 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App w-full min-h-screen overflow-x-hidden bg-gray-100 text-black">
+      {/* ✅ T&C MODAL */}
+      <TermsConsentModal />
+
       <Helmet>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
@@ -51,7 +57,7 @@ function App() {
       <Footer />
 
       {/* Floating Themed + Dark Mode + AOS Animated Ape-X Button */}
-      <div data-aos="fade-up">
+      <div data-aos="fade-up" className="fixed bottom-6 right-6 z-50">
         <Buttonapex onClick={handleApexClick} />
       </div>
     </div>
@@ -59,3 +65,4 @@ function App() {
 }
 
 export default App;
+

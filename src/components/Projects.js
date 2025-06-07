@@ -33,26 +33,23 @@ const Projects = () => {
   ];
 
   return (
-    <section className="projects-section" style={{ padding: '3rem 2rem' }}>
-      <h2 data-aos="fade-up">Our Projects</h2>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
+    <section
+      className="projects-section min-h-screen overflow-x-hidden bg-gray-900 px-6 py-16"
+      data-aos="fade-up"
+    >
+      <h2 className="text-4xl font-bold text-cyan-400 mb-12 text-center">Our Projects</h2>
+      <ul className="max-w-5xl mx-auto space-y-8">
         {projects.map(({ id, title, description, status, note }) => (
           <li
             key={id}
             data-aos="fade-up"
             data-aos-delay={id * 200}
-            style={{
-              marginBottom: '2rem',
-              padding: '1.5rem',
-              background: '#f9f9f9',
-              borderRadius: '12px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
-            }}
+            className="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-cyan-500/50 transition-shadow duration-300"
           >
-            <h3 style={{ marginBottom: '0.5rem', color: '#222' }}>{title}</h3>
-            <p style={{ marginBottom: '0.5rem', color: '#555' }}>{description}</p>
-            <p style={{ fontStyle: 'italic', color: '#666' }}>{status}</p>
-            {note && <p style={{ fontWeight: '600', color: '#007acc' }}>{note}</p>}
+            <h3 className="text-2xl font-semibold text-cyan-300 mb-2">{title}</h3>
+            <p className="text-gray-300 mb-2 leading-relaxed">{description}</p>
+            <p className="italic text-gray-400 mb-2">{status}</p>
+            {note && <p className="font-semibold text-cyan-400">{note}</p>}
           </li>
         ))}
       </ul>

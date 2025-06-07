@@ -7,73 +7,51 @@ const Contact = () => {
     AOS.init({ duration: 1200, easing: "ease-in-out", once: true });
   }, []);
 
-  const containerStyle = {
-    padding: "2rem",
-    fontFamily: "'Arial', sans-serif",
-    maxWidth: "600px",
-    margin: "0 auto",
-    color: "#222",
-  };
-
-  const sectionStyle = {
-    marginBottom: "1.8rem",
-  };
-
-  const linkStyle = {
-    color: "#0070f3",
-    textDecoration: "none",
-  };
+  const contacts = [
+    { title: "General Inquiries", email: "contact@innotexon.com" },
+    { title: "Support", email: "support@innotexon.com" },
+    { title: "Operations", email: "ops@innotexon.com" },
+    { title: "Research Labs", email: "labs@innotexon.com" },
+    { title: "Legal", email: "legal@innotexon.com" },
+  ];
 
   return (
-    <section id="contact" style={containerStyle}>
-      <h2 data-aos="fade-up" style={{ marginBottom: "2rem" }}>Contact Us</h2>
+    <section
+      id="contact"
+      className="min-h-screen overflow-x-hidden bg-gray-900 text-gray-200 flex justify-center items-center px-6 py-16"
+    >
+      <div
+        className="max-w-lg w-full"
+        style={{ textAlign: "left" }}
+      >
+        <h2
+          data-aos="fade-up"
+          className="text-4xl font-bold mb-10 text-cyan-400"
+        >
+          Contact Us
+        </h2>
 
-      <div data-aos="fade-right" style={sectionStyle}>
-        <h3>General Inquiries</h3>
-        <p>
-          <a href="mailto:contact@innotexon.com" style={linkStyle}>
-            contact@innotexon.com
-          </a>
-        </p>
-      </div>
-
-      <div data-aos="fade-left" style={sectionStyle}>
-        <h3>Support</h3>
-        <p>
-          <a href="mailto:support@innotexon.com" style={linkStyle}>
-            support@innotexon.com
-          </a>
-        </p>
-      </div>
-
-      <div data-aos="fade-right" style={sectionStyle}>
-        <h3>Operations</h3>
-        <p>
-          <a href="mailto:ops@innotexon.com" style={linkStyle}>
-            ops@innotexon.com
-          </a>
-        </p>
-      </div>
-
-      <div data-aos="fade-left" style={sectionStyle}>
-        <h3>Research Labs</h3>
-        <p>
-          <a href="mailto:labs@innotexon.com" style={linkStyle}>
-            labs@innotexon.com
-          </a>
-        </p>
-      </div>
-
-      <div data-aos="fade-up" style={sectionStyle}>
-        <h3>Legal</h3>
-        <p>
-          <a href="mailto:legal@innotexon.com" style={linkStyle}>
-            legal@innotexon.com
-          </a>
-        </p>
+        {contacts.map(({ title, email }, idx) => (
+          <div
+            key={idx}
+            data-aos="fade-up"
+            data-aos-delay={idx * 300}
+            className="mb-8 last:mb-0"
+          >
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <a
+              href={`mailto:${email}`}
+              className="text-cyan-400 hover:text-cyan-600 transition-colors duration-300"
+            >
+              {email}
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
 export default Contact;
+
+

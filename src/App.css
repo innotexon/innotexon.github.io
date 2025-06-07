@@ -8,18 +8,23 @@
 }
 
 body {
-  background: #f4f6f9;
-  color: #1b1b1b;
+  background: linear-gradient(180deg, #0b0c10, #1f1f1f, #2b2e3b);
+  color: #e6f1ff;
   line-height: 1.7;
   transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 /* Main App Wrapper */
 .App {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
   animation: fadeIn 1s ease-in;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #0b0c10 0%, #121212 50%, #1a1a1a 100%);
 }
 
 /* Generic Section Styling */
@@ -29,63 +34,76 @@ section {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: radial-gradient(circle at top, #111827, #1e293b, #0b0c10);
   padding: 120px 24px;
   text-align: center;
-  color: #fff;
-  border-radius: 16px;
+  color: #00ffee;
+  border-radius: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.08);
 }
 
 .hero-section::after {
   content: '';
   position: absolute;
-  top: -40px;
-  left: -40px;
+  top: -50px;
+  left: -50px;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
-  animation: pulseGlow 8s infinite linear;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  animation: pulseGlow 10s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .logo {
-  width: 200px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 220px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 255, 255, 0.2);
   margin-bottom: 24px;
+  z-index: 2;
+  position: relative;
 }
 
 .hero-section h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   animation: fadeUp 1s ease forwards;
+  z-index: 2;
+  position: relative;
+  background: linear-gradient(to right, #00ffee, #5bc0be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-section p {
   font-size: 1.3rem;
   font-weight: 300;
-  opacity: 0.9;
+  opacity: 0.85;
   animation: fadeUp 1.2s ease forwards;
+  z-index: 2;
+  position: relative;
 }
 
 /* About Section */
 .about {
-  background: #ffffff;
+  background: #0f172a;
   padding: 3rem 2rem;
-  border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 18px;
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.03);
+  border: 1px solid #1e293b;
 }
 
 .about h2 {
   font-size: 2.2rem;
   margin-bottom: 1.2rem;
-  color: #0f2027;
+  color: #5bc0be;
 }
 
 .about p {
   font-size: 1.15rem;
-  color: #444;
+  color: #cbd5e1;
 }
 
 /* Projects Section */
@@ -96,53 +114,54 @@ section {
 .projects h2 {
   text-align: center;
   font-size: 2.2rem;
-  color: #111;
+  color: #38bdf8;
   margin-bottom: 2rem;
 }
 
 .project-item {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  background: #111827;
+  border-radius: 18px;
+  box-shadow: 0 2px 20px rgba(0, 255, 255, 0.05);
   padding: 2rem;
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #1f2937;
 }
 
 .project-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.08);
 }
 
 .project-item h3 {
   font-size: 1.5rem;
-  color: #203a43;
+  color: #00ffee;
   margin-bottom: 0.75rem;
 }
 
 .project-item p {
   font-size: 1rem;
-  color: #444;
+  color: #94a3b8;
 }
 
 /* Contact Section */
 .contact {
-  background: #ffffff;
+  background: #0f172a;
   padding: 3rem 2rem;
-  border-radius: 14px;
+  border-radius: 18px;
   text-align: center;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 24px rgba(0, 255, 255, 0.03);
 }
 
 .contact h2 {
   font-size: 2.1rem;
-  color: #0f2027;
+  color: #5eead4;
   margin-bottom: 1rem;
 }
 
 .contact p {
   font-size: 1rem;
-  color: #333;
+  color: #cbd5e1;
 }
 
 /* Responsive Design */
@@ -152,11 +171,11 @@ section {
   }
 
   .App {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 
   .about, .contact {
-    padding: 2rem 1.2rem;
+    padding: 2rem 1rem;
   }
 }
 
@@ -187,7 +206,7 @@ section {
     opacity: 0.3;
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.1);
     opacity: 0.1;
   }
   100% {
@@ -195,3 +214,4 @@ section {
     opacity: 0.3;
   }
 }
+

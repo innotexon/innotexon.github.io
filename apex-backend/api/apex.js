@@ -37,10 +37,14 @@ export default async function handler(req, res) {
     console.log('📨 Incoming request to /api/apex');
     console.log('📦 Request body:', JSON.stringify(req.body, null, 2));
 
-    const requestBody = { ...req.body };
-    if (!requestBody.maxOutputTokens) {
-      requestBody.maxOutputTokens = 500;
-    }
+    // ✅ Merge maxOutputTokens inside generationConfig correctly
+    const requestBody = {
+      ...req.body,
+      generationConfig: {
+        maxOutputTokens: 500,
+        ...(req.body.generationConfig || {})
+      }
+    };
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`,

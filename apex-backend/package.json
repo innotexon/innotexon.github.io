@@ -1,15 +1,12 @@
 {
   "name": "apex-backend",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "main": "api/apex.js",
   "scripts": {
     "dev": "vercel dev"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^3.3.1"
   }
 }

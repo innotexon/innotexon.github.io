@@ -9,8 +9,8 @@ import VerticalTokenBar from '../components/apex/VerticalTokenBar';
 import { APEX_STYLE_MAP, TOKEN_LIMIT } from '../config/apexConfig';
 import { fetchApeXResponse } from '../services/apexApi';
 
-import TermsModal from '../components/TermsModal'; // Terms & Conditions modal
-import FeedbackModal from '../components/apex/FeedbackModal'; // Feedback modal
+import TermsModal from '../components/TermsModal';
+import FeedbackModal from '../components/apex/FeedbackModal';
 
 const Apex = () => {
   const [currentMode, onChange] = useState('primordialClarity');
@@ -20,8 +20,7 @@ const Apex = () => {
   const [messages, setMessages] = useState([]);
   const [editMessageId, setEditMessageId] = useState(null);
   const [hasAcceptedTerms, setHasAcceptedTerms] = useState(false);
-  
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false); // NEW: feedback modal toggle
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   const tokensLeft = Math.max(TOKEN_LIMIT - tokensUsed, 0);
   const isSending = useRef(false);
@@ -101,14 +100,18 @@ const Apex = () => {
 
     try {
       const response = await fetchApeXResponse(updatedMessages, currentMode);
-      const responseText = response?.text?.trim();
-      const silent = responseText?.toLowerCase().includes('silent');
-      const invalid = !responseText || silent;
+
+      // ✅ FIXED: Proper Gemini Flash 2.0 parsing
+      const rawText = response?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+      const silent = rawText?.toLowerCase().includes('silent');
+      const invalid = !rawText || silent;
 
       const botMessage = {
         id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         role: 'assistant',
-        content: invalid ? '⚠️ The Sacred One is momentarily silent. Please try again.' : responseText,
+        content: invalid
+          ? '⚠️ The Sacred One is momentarily silent. Please try again.'
+          : rawText,
         mode: currentMode,
         timestamp: new Date().toISOString(),
       };
@@ -192,14 +195,13 @@ const Apex = () => {
         />
       </footer>
 
-      {/* NEW: Floating Feedback Button */}
+      {/* Feedback Button */}
       <button
         aria-label="Open Feedback Form"
         onClick={() => setIsFeedbackOpen(true)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-tr from-indigo-600 to-purple-600 shadow-lg flex items-center justify-center text-white hover:brightness-110 transition"
         title="Send Feedback"
       >
-        {/* Simple feedback symbol (✉️) or customize icon here */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-7 w-7"
@@ -212,7 +214,7 @@ const Apex = () => {
         </svg>
       </button>
 
-      {/* NEW: Feedback Modal */}
+      {/* Feedback Modal */}
       <FeedbackModal
         isOpen={isFeedbackOpen}
         onClose={() => setIsFeedbackOpen(false)}
@@ -233,6 +235,7 @@ const Apex = () => {
 };
 
 export default Apex;
+
 
 
 

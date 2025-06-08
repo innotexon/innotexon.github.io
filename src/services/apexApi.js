@@ -1,6 +1,7 @@
 import PromptModifier from '../components/apex/PromptModifier'; // Inject persona tone
 
-const PROXY_API_URL = 'http://localhost:5000/api/apex';
+// 🔁 Update this to your new production backend URL
+const PROXY_API_URL = 'https://api.innotexon.com/api/apex';
 
 export const FREE_MODEL_OPTIONS = ['gemini-1.5-flash-latest'];
 const FREE_MODEL_ID = 'gemini-1.5-flash-latest';
@@ -19,7 +20,6 @@ export async function fetchApeXResponse(messages = [], currentMode = 'primordial
     };
   }
 
-  // Find the latest user message
   const latestUserMessage = messages.findLast(msg => msg.role === 'user');
   if (!latestUserMessage) {
     return {
@@ -28,14 +28,11 @@ export async function fetchApeXResponse(messages = [], currentMode = 'primordial
     };
   }
 
-  // 👇 Track previous mode to detect transitions
   let prevMode = null;
 
   const geminiFormattedMessages = messages.map((msg, index) => {
     const isUser = msg.role === 'user';
     const modeNow = msg.modeAtTime || currentMode;
-
-    // Determine whether to inject PromptModifier (first message or mode switch)
     const shouldInjectPrompt = isUser && (index === 0 || prevMode !== modeNow);
 
     let finalText;
@@ -98,4 +95,3 @@ export async function fetchApeXResponse(messages = [], currentMode = 'primordial
     };
   }
 }
-
